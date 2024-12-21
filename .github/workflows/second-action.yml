@@ -1,7 +1,7 @@
 name: First Workflow
 on: push
 jobs:
-  first-job:
+  test:
     runs-on: ubuntu-latest
     steps:
       - name: checkout
@@ -14,3 +14,18 @@ jobs:
         run: npm ci
       - name: run test
         run: npm test
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: checkout
+        uses: actions/checkout@v4
+      - name: Install NodeJS
+        uses: actions/setup-node@v4
+        with:
+          node-version: 18
+      - name: Install dependency
+        run: npm ci
+      - name: run deploy
+        run: npm deploy
+      - name: notify
+        run: echo "deploying ...."
