@@ -26,6 +26,6 @@ jobs:
       - name: Install dependency
         run: npm ci
       - name: run deploy
-        run: npm deploy
+        run: npm run build
       - name: notify
         run: echo "deploying ...."
