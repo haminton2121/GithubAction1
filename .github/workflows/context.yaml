@@ -1,1 +1,8 @@
-
+name: Context Workflow
+on: [push, workflow_dispatch]
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: checkout
+        run: echo "${{ github.repository }}"
